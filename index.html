@@ -57,10 +57,11 @@
           <img
             class="hero__logo"
             src="assets/logos/league-logo-temp.png"
-            alt="イチナナV 麻雀リーグ 2026 ロゴ"
-            width="520"
-            height="292"
+            alt="イチナナV 麻雀リーグ ロゴ"
+            width="880"
+            height="221"
           >
+          <p class="hero__logo-note">ロゴは仮デザインです</p>
         </div>
         <div class="cd cd--hero" data-countdown data-target="2026-11-06T21:00:00+09:00" aria-live="polite">
           <p class="cd__label">開幕まで</p>
@@ -82,7 +83,8 @@
           <span class="hero__eyebrow-line" aria-hidden="true"></span>
         </p>
         <h1 class="hero__title" id="hero-title">
-          イチナナV 麻雀リーグ<br>2026
+          <span class="sr-only">イチナナV 麻雀リーグ </span>
+          <span class="hero__title-year">2026</span>
           <span class="hero__title-en">ICHINANA V MAHJONG LEAGUE</span>
         </h1>
         <p class="hero__tagline">17LIVE Vライバー × 雀魂 チームリーグ</p>
@@ -93,12 +95,11 @@
           <li>17LIVE配信</li>
         </ul>
         <p class="hero__meta">
-          <span>主催：
-            相川 翔</span>
+          <span class="hero__meta-item">主催：相川 翔</span>
           <span class="hero__meta-sep" aria-hidden="true">｜</span>
-          <span>大会ID：128015</span>
+          <span class="hero__meta-item">大会ID：128015</span>
           <span class="hero__meta-sep" aria-hidden="true">｜</span>
-          <span>4チーム × 全16半荘</span>
+          <span class="hero__meta-item">4チーム × 全16半荘</span>
         </p>
         <div class="hero__cta">
           <a class="btn" href="#schedule">スケジュールを見る</a>
@@ -129,42 +130,25 @@
             <p>週1日・1日2半荘のペースで全8試合日（計16半荘）。約2ヶ月かけて順位を競う招待制チームリーグです。</p>
           </div>
 
-          <div class="about-stack">
-            <div class="washi about__info">
-              <dl>
-                <div>
-                  <dt>開催期間</dt>
-                  <dd>2026年11月6日（金）〜 2027年1月17日（日）</dd>
-                </div>
-                <div>
-                  <dt>形　式</dt>
-                  <dd>4チーム対抗・リーグ戦（1日2半荘 × 全8日）</dd>
-                </div>
-                <div>
-                  <dt>会　場</dt>
-                  <dd>雀魂（大会ID：128015）／17LIVE配信</dd>
-                </div>
-                <div>
-                  <dt>主　催</dt>
-                  <dd>相川 翔</dd>
-                </div>
-              </dl>
-            </div>
-
-            <div class="cd" id="countdown" data-countdown data-target="2026-11-06T21:00:00+09:00" aria-live="polite">
-              <p class="cd__label">次の対局まで</p>
-              <p class="cd__sub">2026年11月6日（金）21:00 配信開始予定（Asia/Tokyo）</p>
-              <div class="cd__grid" data-cd-grid>
-                <div class="cd__unit"><span class="cd__num" data-cd="days">--</span><span class="cd__cap">DAYS</span></div>
-                <span class="cd__sep" aria-hidden="true">:</span>
-                <div class="cd__unit"><span class="cd__num" data-cd="hours">--</span><span class="cd__cap">HOURS</span></div>
-                <span class="cd__sep" aria-hidden="true">:</span>
-                <div class="cd__unit"><span class="cd__num" data-cd="mins">--</span><span class="cd__cap">MIN</span></div>
-                <span class="cd__sep" aria-hidden="true">:</span>
-                <div class="cd__unit"><span class="cd__num" data-cd="secs">--</span><span class="cd__cap">SEC</span></div>
+          <div class="washi about__info">
+            <dl>
+              <div>
+                <dt>開催期間</dt>
+                <dd><span class="nowrap">2026年11月6日（金）</span> 〜 <span class="nowrap">2027年1月17日（日）</span></dd>
               </div>
-              <p class="cd__done" data-cd-done hidden>リーグ期間中</p>
-            </div>
+              <div>
+                <dt>形　式</dt>
+                <dd>4チーム対抗・リーグ戦（1日2半荘 × 全8日）</dd>
+              </div>
+              <div>
+                <dt>会　場</dt>
+                <dd>雀魂（大会ID：128015）／17LIVE配信</dd>
+              </div>
+              <div>
+                <dt>主　催</dt>
+                <dd>相川 翔</dd>
+              </div>
+            </dl>
           </div>
         </div>
       </div>
@@ -188,7 +172,7 @@
           <article class="rule-card">
             <div class="rule-card__num">02</div>
             <h3>対局ルール</h3>
-            <p>四人南・持ち点25,000／返し30,000。ウマ10-30。アリアリ・赤ドラ・一発／裏／カンドラあり。頭ハネ・途中流局なし。</p>
+            <p>四人南・持ち点25,000／返し30,000。ウマ10-30。アリアリ・赤ドラ・一発／裏／カンドラあり。頭ハネなし・途中流局なし。</p>
           </article>
           <article class="rule-card">
             <div class="rule-card__num">03</div>
@@ -223,7 +207,7 @@
                     <li>切り上げ満貫：なし</li>
                     <li>流し満貫：なし</li>
                     <li>途中流局なし（九種九牌・四風連打・四槓散了・四家立直・三家和など無効）</li>
-                    <li>頭ハネ：あり（ダブロンなし）</li>
+                    <li>頭ハネ：なし（ダブロンなし）</li>
                     <li>数え役満：なし</li>
                     <li>和了終局・聴牌終局：なし</li>
                     <li>南入／西入：なし</li>
@@ -334,7 +318,8 @@
             </div>
             <div class="sched-item__body">
               <h3>11月6日（金）・開幕戦</h3>
-              <p class="sched-item__meta">1日2半荘　／　21:00 配信開始予定　／　開幕はリーダー全員登板なし方針</p>
+              <p class="sched-item__meta">1日2半荘　／　21:00 配信開始予定</p>
+              <p class="sched-item__note">開幕はリーダー全員登板なし方針</p>
               <div class="sched-item__tags">
                 <span class="tag tag--teal">開幕</span>
                 <span class="tag">21:00〜</span>
@@ -415,7 +400,7 @@
             <h2 id="results-heading">リザルト</h2>
           </div>
         </div>
-        <p class="sect-lead">チームランキング・個人スコア TOP3・最高スコア TOP3 を掲載します。開幕後に更新します。</p>
+        <p class="sect-lead">チームランキング・個人スコア TOP3・最高スコア TOP3 を掲載します。</p>
         <p class="results-caption note">雀魂 大会ID 128015 の対局結果をもとに集計（開幕後に更新）。</p>
 
         <!-- 1. チームランキング -->
