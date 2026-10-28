@@ -280,12 +280,6 @@ a:hover { color: var(--c-accent-deep); }
   height: auto;
   display: block;
 }
-.hero__logo-note {
-  margin: 0.55rem 0 0;
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  color: var(--c-ink-mute);
-}
 
 .hero__eyebrow {
   display: flex;
