@@ -30,7 +30,7 @@ ichinana-v-mahjong-league/
 ├── js/main.js
 ├── data/results.json
 └── assets/logos/
-    ├── league-logo-temp.png # 大会ロゴ
+    ├── league-logo-temp.png # リーグロゴ
     ├── team-koneko.png      # 小猫熊
     ├── team-apple.png       # お前をApple牌
     ├── team-pandaz.png      # PANDAaaaZ
@@ -58,7 +58,7 @@ ichinana-v-mahjong-league/
 - 小猫熊 / PANDAaaaZ / 猫雀カルテットのメンバー名
 - 11/6 以外の開始時刻・対戦カード
 - リザルト（開幕後：雀魂大会戦・Excel集計）
-- 正式大会ロゴへの差し替え
+- 正式リーグロゴへの差し替え
 
 ## クレジット
 

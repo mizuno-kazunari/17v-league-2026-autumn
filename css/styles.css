@@ -267,7 +267,7 @@ a:hover { color: var(--c-accent-deep); }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 1.6rem;
+  margin: 0 auto 1.1rem;
   padding: clamp(0.75rem, 2.5vw, 1.25rem) clamp(1rem, 3vw, 1.75rem);
   background: transparent;
   border-radius: 12px;
@@ -488,10 +488,27 @@ a:hover { color: var(--c-accent-deep); }
   white-space: nowrap;
 }
 .sect-lead {
-  max-width: 40em;
+  max-width: min(52em, 100%);
   margin: -1.1rem 0 2.2rem;
   color: var(--c-ink-soft);
   font-size: 0.97rem;
+  line-height: 1.9;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
+}
+.sect-lead .inline-link,
+.rules-detail-note a,
+.inline-link {
+  color: var(--c-accent);
+  font-weight: 700;
+  border-bottom: 1px solid rgba(200, 16, 60, 0.35);
+}
+.sect-lead .inline-link:hover,
+.rules-detail-note a:hover,
+.inline-link:hover {
+  color: var(--c-accent-deep);
+  border-bottom-color: var(--c-accent-deep);
 }
 
 .washi {
@@ -676,6 +693,23 @@ a:hover { color: var(--c-accent-deep); }
 .rules-footnote {
   margin: 1.2rem 0 0;
   padding: 0 0.2rem;
+}
+.rules-detail-note {
+  margin: 0 0 0.85rem;
+  font-size: 0.86rem;
+  color: var(--c-ink-mute);
+  line-height: 1.7;
+}
+.rules-detail-list {
+  margin: 0;
+  padding: 0 0 0 1.15em;
+  display: grid;
+  gap: 0.35rem;
+  list-style: disc;
+}
+.rules-detail-list li {
+  line-height: 1.7;
+  color: var(--c-ink-soft);
 }
 
 /* —— Teams —— */
@@ -1168,6 +1202,52 @@ a:hover { color: var(--c-accent-deep); }
   font-size: 1.2rem;
   letter-spacing: 0.12em;
   color: var(--c-accent);
+}
+.cd__done[hidden],
+.cd__grid[hidden] {
+  display: none !important;
+}
+.cd.is-live .cd__label,
+.cd.is-live .cd__sub {
+  display: none;
+}
+.cd--hero {
+  width: min(100%, 640px);
+  margin: 0 auto 1.75rem;
+  padding: 1.55rem 1.25rem 1.65rem;
+  border: 1px solid rgba(200, 16, 60, 0.35);
+  background: linear-gradient(165deg, rgba(253, 232, 238, 0.95), rgba(255, 255, 255, 0.92));
+  box-shadow: 0 10px 28px rgba(200, 16, 60, 0.12);
+}
+.cd--hero .cd__label {
+  font-size: clamp(1.05rem, 3vw, 1.35rem);
+  letter-spacing: 0.2em;
+}
+.cd--hero .cd__sub {
+  font-size: 0.84rem;
+  margin-bottom: 1.15rem;
+}
+.cd--hero .cd__num {
+  font-size: clamp(2.2rem, 8vw, 3.4rem);
+}
+.cd--hero .cd__cap {
+  font-size: 0.58rem;
+  letter-spacing: 0.28em;
+}
+.cd--hero .cd__sep {
+  font-size: clamp(1.5rem, 5vw, 2.4rem);
+  margin-top: 0.18em;
+}
+.cd--hero .cd__unit {
+  min-width: clamp(56px, 14vw, 88px);
+}
+.cd--hero .cd__done {
+  margin: 0.2rem 0 0;
+  font-size: clamp(1.55rem, 5vw, 2.2rem);
+  letter-spacing: 0.18em;
+}
+.cd.is-live .cd__done {
+  margin-top: 0.15rem;
 }
 
 /* —— Footer —— */

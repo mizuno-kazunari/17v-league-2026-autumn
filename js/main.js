@@ -49,34 +49,35 @@
   window.addEventListener("scroll", updateActiveNav, { passive: true });
   updateActiveNav();
 
-  // Countdown to 2026-11-06 21:00 Asia/Tokyo
-  var cd = document.getElementById("countdown");
-  if (cd) {
-    var targetIso = cd.getAttribute("data-target") || "2026-11-06T21:00:00+09:00";
-    var target = new Date(targetIso).getTime();
-    var daysEl = cd.querySelector('[data-cd="days"]');
-    var hoursEl = cd.querySelector('[data-cd="hours"]');
-    var minsEl = cd.querySelector('[data-cd="mins"]');
-    var secsEl = cd.querySelector('[data-cd="secs"]');
-    var grid = cd.querySelector("[data-cd-grid]");
-
+  // Countdown(s) to 2026-11-06 21:00 Asia/Tokyo — one tick drives all [data-countdown]
+  var countdownRoots = Array.prototype.slice.call(
+    document.querySelectorAll("[data-countdown]")
+  );
+  if (countdownRoots.length) {
     function pad(n) {
       return String(n).padStart(2, "0");
     }
 
-    function tick() {
-      var now = Date.now();
-      var diff = target - now;
-      if (diff <= 0) {
-        if (grid) grid.hidden = true;
-        if (!cd.querySelector(".cd__done")) {
-          var done = document.createElement("p");
-          done.className = "cd__done";
-          done.textContent = "開幕！";
-          cd.appendChild(done);
-        }
-        return;
+    function applyLive(root) {
+      var grid = root.querySelector("[data-cd-grid]");
+      var done = root.querySelector("[data-cd-done]");
+      var label = root.querySelector(".cd__label");
+      var sub = root.querySelector(".cd__sub");
+      if (grid) grid.hidden = true;
+      if (label) label.hidden = true;
+      if (sub) sub.hidden = true;
+      if (done) {
+        done.hidden = false;
+        done.textContent = "リーグ期間中";
       }
+      root.classList.add("is-live");
+    }
+
+    function applyTick(root, diff) {
+      var daysEl = root.querySelector('[data-cd="days"]');
+      var hoursEl = root.querySelector('[data-cd="hours"]');
+      var minsEl = root.querySelector('[data-cd="mins"]');
+      var secsEl = root.querySelector('[data-cd="secs"]');
       var days = Math.floor(diff / 86400000);
       var hours = Math.floor((diff % 86400000) / 3600000);
       var mins = Math.floor((diff % 3600000) / 60000);
@@ -87,8 +88,30 @@
       if (secsEl) secsEl.textContent = pad(secs);
     }
 
-    tick();
-    setInterval(tick, 1000);
+    function tickAll() {
+      var now = Date.now();
+      var allLive = true;
+      countdownRoots.forEach(function (root) {
+        var targetIso = root.getAttribute("data-target") || "2026-11-06T21:00:00+09:00";
+        var target = new Date(targetIso).getTime();
+        var diff = target - now;
+        if (diff <= 0) {
+          applyLive(root);
+          return;
+        }
+        allLive = false;
+        applyTick(root, diff);
+      });
+      return allLive;
+    }
+
+    if (!tickAll()) {
+      setInterval(function () {
+        if (tickAll()) {
+          /* stay live; interval can keep running harmlessly */
+        }
+      }, 1000);
+    }
   }
 
   // —— Results: load data/results.json and render ——
