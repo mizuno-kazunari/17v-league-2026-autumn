@@ -1,0 +1,12 @@
+{
+  "updatedAt": null,
+  "contestId": "128015",
+  "teamRanking": [
+    { "rank": 1, "teamId": "koneko", "name": "小猫熊", "score": null, "games": 0 },
+    { "rank": 2, "teamId": "apple", "name": "お前をApple牌", "score": null, "games": 0 },
+    { "rank": 3, "teamId": "pandaz", "name": "PANDAaaaZ", "score": null, "games": 0 },
+    { "rank": 4, "teamId": "nekojyaku", "name": "猫雀カルテット", "score": null, "games": 0 }
+  ],
+  "playerScores": [],
+  "topScores": []
+}
