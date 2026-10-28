@@ -1,8 +1,8 @@
-/* イチナナV 麻雀リーグ チーム戦 — white base + red accent */
+/* イチナナV 麻雀リーグ チーム戦 — pale orange base + red accent */
 :root {
-  --c-bg: #ffffff;
-  --c-bg-soft: #f7f7f8;
-  --c-bg-mute: #f0f0f2;
+  --c-bg: #FFF5EB;
+  --c-bg-soft: #FFE8D6;
+  --c-bg-mute: #FFDFC8;
   --c-ink: #1a1a1a;
   --c-ink-soft: #4a4a4a;
   --c-ink-mute: #6b6b6b;
@@ -82,7 +82,7 @@ a:hover { color: var(--c-accent-deep); }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 245, 235, 0.94);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--c-border);
 }
@@ -234,7 +234,7 @@ a:hover { color: var(--c-accent-deep); }
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(180deg, transparent 0%, transparent 70%, rgba(255, 255, 255, 0.9) 100%);
+    linear-gradient(180deg, transparent 0%, transparent 70%, rgba(255, 245, 235, 0.92) 100%);
   pointer-events: none;
 }
 .hero__rays {
@@ -269,9 +269,9 @@ a:hover { color: var(--c-accent-deep); }
   justify-content: center;
   margin: 0 auto 1.6rem;
   padding: clamp(0.75rem, 2.5vw, 1.25rem) clamp(1rem, 3vw, 1.75rem);
-  background: var(--c-logo-plate);
+  background: transparent;
   border-radius: 12px;
-  box-shadow: 0 12px 36px rgba(26, 26, 26, 0.18);
+  box-shadow: none;
   max-width: min(100%, 560px);
 }
 .hero__logo {
@@ -496,7 +496,7 @@ a:hover { color: var(--c-accent-deep); }
 
 .washi {
   position: relative;
-  background: var(--c-bg);
+  background: #ffffff;
   color: var(--c-ink);
   border-radius: var(--radius);
   border: 1px solid var(--c-border);
@@ -512,7 +512,7 @@ a:hover { color: var(--c-accent-deep); }
 }
 .panel {
   position: relative;
-  background: var(--c-bg);
+  background: #ffffff;
   border: 1px solid var(--c-border);
   border-radius: var(--radius);
   box-shadow: var(--shadow-card);
@@ -608,7 +608,7 @@ a:hover { color: var(--c-accent-deep); }
   position: relative;
   padding: 1.45rem 1.3rem 1.35rem;
   color: var(--c-ink);
-  background: var(--c-bg);
+  background: #ffffff;
   border: 1px solid var(--c-border);
   border-radius: var(--radius);
   box-shadow: var(--shadow-soft);
@@ -681,8 +681,11 @@ a:hover { color: var(--c-accent-deep); }
 /* —— Teams —— */
 .teams {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(1rem, 2.5vw, 1.5rem);
+}
+@media (max-width: 640px) {
+  .teams { grid-template-columns: 1fr; }
 }
 .team-card {
   position: relative;
@@ -691,7 +694,7 @@ a:hover { color: var(--c-accent-deep); }
   gap: 0.85rem;
   padding: 1.5rem 1.25rem 1.4rem;
   color: var(--c-ink);
-  background: var(--c-bg);
+  background: #ffffff;
   border: 1px solid var(--c-border);
   border-radius: var(--radius);
   box-shadow: var(--shadow-card);
@@ -715,11 +718,11 @@ a:hover { color: var(--c-accent-deep); }
   aspect-ratio: 1;
   display: grid;
   place-items: center;
-  background: var(--c-logo-plate);
-  border: 1px solid #222;
+  background: transparent;
+  border: none;
   border-radius: 8px;
   padding: 0.55rem;
-  box-shadow: var(--shadow-soft);
+  box-shadow: none;
 }
 .team-card__logo img {
   width: 100%;
@@ -752,6 +755,20 @@ a:hover { color: var(--c-accent-deep); }
 .team-card__leader strong {
   color: var(--c-accent-deep);
   font-weight: 700;
+}
+.liver-link {
+  color: var(--c-accent);
+  text-decoration: none;
+  font-weight: 700;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.liver-link:hover {
+  color: var(--c-accent-deep);
+  border-bottom-color: var(--c-accent-deep);
+}
+.team-card__members .liver-link {
+  color: var(--c-accent);
 }
 .team-card__origin {
   margin: 0;
@@ -804,7 +821,7 @@ a:hover { color: var(--c-accent-deep); }
   gap: 1rem 1.25rem;
   align-items: center;
   padding: 1.15rem 1.25rem;
-  background: var(--c-bg);
+  background: #ffffff;
   border: 1px solid var(--c-border);
   border-radius: var(--radius);
   box-shadow: var(--shadow-soft);
@@ -816,7 +833,7 @@ a:hover { color: var(--c-accent-deep); }
 }
 .sched-item--opener {
   border-color: rgba(200, 16, 60, 0.45);
-  background: linear-gradient(165deg, var(--c-accent-soft), var(--c-bg));
+  background: linear-gradient(165deg, var(--c-accent-soft), #ffffff);
 }
 .sched-item__day {
   display: grid;
@@ -900,7 +917,7 @@ a:hover { color: var(--c-accent-deep); }
 
 .results-block {
   margin-bottom: clamp(1.5rem, 3.5vw, 2.2rem);
-  background: var(--c-bg);
+  background: #ffffff;
   border: 1px solid var(--c-border);
   border-radius: var(--radius);
   box-shadow: var(--shadow-card);
@@ -911,7 +928,7 @@ a:hover { color: var(--c-accent-deep); }
 .results-block__head {
   padding: 1.15rem 1.35rem 1rem;
   border-bottom: 1px solid var(--c-border);
-  background: linear-gradient(180deg, var(--c-accent-soft), #fff);
+  background: linear-gradient(180deg, var(--c-accent-soft), #ffffff);
 }
 .results-block__en {
   margin: 0 0 0.25rem;
@@ -1092,7 +1109,7 @@ a:hover { color: var(--c-accent-deep); }
   padding: 1.35rem 1.1rem 1.4rem;
   border: 1px solid rgba(200, 16, 60, 0.3);
   border-radius: 6px;
-  background: linear-gradient(160deg, var(--c-accent-soft), #fff);
+  background: linear-gradient(160deg, var(--c-accent-soft), #ffffff);
   text-align: center;
   overflow: hidden;
   box-shadow: var(--shadow-soft);

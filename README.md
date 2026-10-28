@@ -1,9 +1,9 @@
-# イチナナV 麻雀リーグ 2026 秋ノ陣 — ホームページ（ドラフト）
+# イチナナV 麻雀リーグ 2026 — ホームページ
 
 Discord「イチナナV　麻雀リーグ　チーム戦」向けの静的サイトです。  
-配色は **白ベース＋赤の刺し色**（`#c8103c`）。
+配色は **淡いオレンジベース＋赤の刺し色**（`#c8103c`）。
 
-**Discordサーバー情報をもとに作成したドラフトです。公式確認後に公開してください。**
+公開URL: https://mizuno-kazunari.github.io/17v-league-2026-autumn/
 
 ## ローカルで開く
 
@@ -28,47 +28,39 @@ ichinana-v-mahjong-league/
 ├── README.md
 ├── css/styles.css
 ├── js/main.js
+├── data/results.json
 └── assets/logos/
-    ├── league-logo-temp.png # 大会ロゴ（仮）
+    ├── league-logo-temp.png # 大会ロゴ
     ├── team-koneko.png      # 小猫熊
     ├── team-apple.png       # お前をApple牌
     ├── team-pandaz.png      # PANDAaaaZ
     └── team-nekojyaku.png   # 猫雀カルテット
 ```
 
-大会ロゴ（`league-logo-temp.png`）は仮素材です。正式ロゴが決まり次第差し替えてください。
-
-## カラー（白ベース＋赤刺し色）
+## カラー（淡いオレンジ＋赤刺し色）
 
 | トークン | 値 |
 |---|---|
-| `--c-bg` | `#ffffff` |
-| `--c-bg-soft` | `#f7f7f8` |
+| `--c-bg` | `#FFF5EB` |
+| `--c-bg-soft` | `#FFE8D6` |
+| `--c-bg-mute` | `#FFDFC8` |
 | `--c-ink` | `#1a1a1a` |
 | `--c-accent` | `#c8103c` |
 | `--c-accent-deep` | `#a30a2e` |
 | `--c-accent-soft` | `#fde8ee` |
 
-## GitHub Pages で公開する
+## リザルト更新
 
-1. 新しいリポジトリを作成（例：`ichinana-v-mahjong-league`）
-2. このフォルダの内容を push
-3. リポジトリ **Settings → Pages**
-   - Source: **Deploy from a branch**
-   - Branch: `main`（または `gh-pages`）／ Folder: `/ (root)`
-4. 数分後、`https://<user>.github.io/<repo>/` で公開
-
-サブディレクトリ公開の場合も、相対パスのみ使用しているため追加設定は不要です。
+開幕後は `data/results.json` を更新するとランキングが反映されます。
 
 ## 更新メモ（未確定・追記予定）
 
 - 小猫熊 / PANDAaaaZ / 猫雀カルテットのメンバー名
 - 11/6 以外の開始時刻・対戦カード
-- リザルト（開幕後：雀魂大会戦・Excel集計＝相川翔）
-- ルール細則（リーダー会議確定後）
+- リザルト（開幕後：雀魂大会戦・Excel集計）
 - 正式大会ロゴへの差し替え
 
 ## クレジット
 
-- 運営：相川翔
+- 運営：相川 翔
 - 雀魂大会ID：128015
