@@ -1653,3 +1653,10 @@ a.team-card:hover .team-card__name {
   font-size: 0.78rem;
   color: var(--c-ink-soft);
 }
+
+.sched-cards { margin-top: 0.8rem; overflow-x: auto; }
+.sched-cards table { width: 100%; min-width: 420px; border-collapse: collapse; font-size: 0.85rem; background: #fff; }
+.sched-cards th, .sched-cards td { padding: 0.45rem 0.5rem; border: 1px solid var(--c-border); text-align: center; word-break: keep-all; }
+.sched-cards thead th { background: var(--c-bg-soft); font-weight: 700; font-size: 0.78rem; }
+.sched-cards tbody th { white-space: nowrap; font-weight: 700; color: var(--c-accent); }
+.sched-cards tbody th span { display: block; font-size: 0.72rem; color: var(--c-ink-soft); font-weight: 400; }
