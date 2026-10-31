@@ -1672,3 +1672,8 @@ a.team-card:hover .team-card__name {
   color: var(--c-ink);
   word-break: keep-all;
 }
+
+/* hero: simple */
+.hero__title-en { letter-spacing: 0.22em; }
+.hero__title + .hero__meta { margin-top: 1.6rem; }
+.hero__meta + .hero__cta { margin-top: 1.8rem; }
