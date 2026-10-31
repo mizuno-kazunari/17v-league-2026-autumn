@@ -1636,3 +1636,14 @@ a:hover { color: var(--c-accent-deep); }
 a.team-card:hover .team-card__name {
   color: var(--c-accent);
 }
+
+.mcard__type {
+  display: inline-block;
+  margin: 0.2rem 0 0.4rem;
+  padding: 0.15rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--c-accent);
+  border: 1px solid var(--c-accent);
+  border-radius: 999px;
+}
