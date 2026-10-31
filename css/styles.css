@@ -1647,3 +1647,9 @@ a.team-card:hover .team-card__name {
   border: 1px solid var(--c-accent);
   border-radius: 999px;
 }
+
+.mcard__sub {
+  margin: -0.15rem 0 0.25rem;
+  font-size: 0.78rem;
+  color: var(--c-ink-soft);
+}
