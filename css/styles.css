@@ -1418,11 +1418,13 @@ a:hover { color: var(--c-accent-deep); }
 }
 .page-head__lead {
   margin: 0 auto;
-  max-width: 36rem;
+  max-width: 48rem;
   color: var(--c-ink-soft);
   font-size: 0.95rem;
   line-height: 1.85;
-  text-wrap: pretty;
+  word-break: normal;
+  overflow-wrap: anywhere;
+  line-break: strict;
 }
 .page-head__rule {
   width: min(100% - 2.5rem, var(--shell));
