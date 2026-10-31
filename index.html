@@ -62,7 +62,7 @@
             height="292"
           >
         </div>
-        <div class="cd cd--hero" data-countdown data-target="2026-11-06T21:00:00+09:00" aria-live="polite">
+        <div class="cd cd--hero" data-countdown="kickoff" data-target="2026-11-06T21:00:00+09:00" aria-live="polite">
           <p class="cd__label">開幕まで</p>
           <p class="cd__sub">2026年11月6日（金）21:00 配信開始予定（Asia/Tokyo）</p>
           <div class="cd__grid" data-cd-grid>
@@ -82,17 +82,9 @@
           <span class="hero__eyebrow-line" aria-hidden="true"></span>
         </p>
         <h1 class="hero__title" id="hero-title">
-          <span class="sr-only">イチナナV 麻雀リーグ </span>
-          <span class="hero__title-year">2026</span>
-          <span class="hero__title-en">ICHINANA V MAHJONG LEAGUE</span>
+          <span class="hero__title-ja">イチナナV麻雀リーグ2026 秋ノ陣</span>
+          <span class="hero__title-en">17 V MAHJONG LEAGUE 2026 AUTUMN</span>
         </h1>
-        <p class="hero__tagline">17LIVE Vライバー × 雀魂 チームリーグ</p>
-        <p class="hero__dates">2026.11.06 — 2027.01.17</p>
-        <ul class="hero__chips">
-          <li>招待制チーム戦</li>
-          <li>雀魂</li>
-          <li>17LIVE配信</li>
-        </ul>
         <p class="hero__meta">
           <span class="hero__meta-item">主催：相川 翔</span>
           <span class="hero__meta-sep" aria-hidden="true">｜</span>
@@ -151,9 +143,9 @@
               </dl>
             </div>
 
-            <div class="cd" id="countdown" data-countdown data-target="2026-11-06T21:00:00+09:00" aria-live="polite">
+            <div class="cd" id="countdown" data-countdown="next-match" aria-live="polite">
               <p class="cd__label">次の対局まで</p>
-              <p class="cd__sub">2026年11月6日（金）21:00 配信開始予定（Asia/Tokyo）</p>
+              <p class="cd__sub" data-cd-sub>次の対局日を確認中…</p>
               <div class="cd__grid" data-cd-grid>
                 <div class="cd__unit"><span class="cd__num" data-cd="days">--</span><span class="cd__cap">DAYS</span></div>
                 <span class="cd__sep" aria-hidden="true">:</span>
@@ -163,7 +155,7 @@
                 <span class="cd__sep" aria-hidden="true">:</span>
                 <div class="cd__unit"><span class="cd__num" data-cd="secs">--</span><span class="cd__cap">SEC</span></div>
               </div>
-              <p class="cd__done" data-cd-done hidden>リーグ期間中</p>
+              <p class="cd__done" data-cd-done hidden>対局中</p>
             </div>
           </div>
         </div>
@@ -265,8 +257,8 @@
             <ul class="team-card__members">
               <li><a class="liver-link" href="https://17.live/ja/profile/r/2182032" target="_blank" rel="noopener noreferrer">かずなり</a></li>
               <li><a class="liver-link" href="https://17.live/ja/profile/r/28209281" target="_blank" rel="noopener noreferrer">熊恋べりぃ</a></li>
-              <li><a class="liver-link" href="https://17.live/ja/profile/u/4eab151e-738d-49ee-a254-8a7f306e8e91" target="_blank" rel="noopener noreferrer">さくら猫</a></li>
-              <li><a class="liver-link" href="https://17.live/ja/profile/u/9b98b8bb-13e2-44f6-89a7-a0a5ba4792db" target="_blank" rel="noopener noreferrer">小悪魔デビル</a></li>
+              <li><a class="liver-link" href="https://17.live/s/u/4eab151e-738d-49ee-a254-8a7f306e8e91" target="_blank" rel="noopener noreferrer">さくら猫</a></li>
+              <li><a class="liver-link" href="https://17.live/s/u/9b98b8bb-13e2-44f6-89a7-a0a5ba4792db" target="_blank" rel="noopener noreferrer">小悪魔デビル</a></li>
             </ul>
             <a class="team-card__detail" href="teams/koneko.html">メンバー詳細</a>
           </article>
@@ -281,9 +273,9 @@
             <p class="team-card__leader">リーダー：<strong><a class="liver-link" href="https://17.live/ja/profile/u/6a5f332e-1e1e-4b91-96d8-3ce310a2971e" target="_blank" rel="noopener noreferrer">柊なゆた</a></strong></p>
             <ul class="team-card__members">
               <li><a class="liver-link" href="https://17.live/ja/profile/u/6a5f332e-1e1e-4b91-96d8-3ce310a2971e" target="_blank" rel="noopener noreferrer">柊なゆた</a></li>
-              <li>縁辺ザウルス</li>
-              <li>シラメイ</li>
-              <li>シュウ.S</li>
+              <li><a class="liver-link" href="https://17.live/s/u/6d0bc812-2940-460c-807a-c1621c5b6d51" target="_blank" rel="noopener noreferrer">緑辺ザウルス</a></li>
+              <li><a class="liver-link" href="https://17.live/s/u/a5646616-7b65-48bc-adb3-aa39aa13aa3a" target="_blank" rel="noopener noreferrer">シラメイ</a></li>
+              <li><a class="liver-link" href="https://17.live/s/u/664b216b-973f-4cbf-bc17-8c6a55386b3a" target="_blank" rel="noopener noreferrer">シュウ.s</a></li>
             </ul>
             <a class="team-card__detail" href="teams/apple.html">メンバー詳細</a>
           </article>
@@ -297,6 +289,9 @@
             <p class="team-card__sub">PANDAAAAZ</p>
             <p class="team-card__leader">リーダー：<strong>相川 翔</strong></p>
             <ul class="team-card__members">
+              <li>相川 翔</li>
+              <li><a class="liver-link" href="https://17.live/ja/profile/r/28644387" target="_blank" rel="noopener noreferrer">霧島 耀</a></li>
+              <li><a class="liver-link" href="https://17.live/s/u/1b80a62e-98b5-4209-b0ef-2ef5e96f2938" target="_blank" rel="noopener noreferrer">笹子ジュン</a></li>
               <li class="pending">メンバー情報は準備中</li>
             </ul>
             <a class="team-card__detail" href="teams/pandaz.html">メンバー詳細</a>
@@ -309,9 +304,12 @@
             </div>
             <h3 class="team-card__name"><a href="teams/nekojyaku.html">猫雀カルテット</a></h3>
             <p class="team-card__sub">NYANJAN QUARTET</p>
-            <p class="team-card__leader">リーダー：<strong>mikicat</strong></p>
+            <p class="team-card__leader">リーダー：<strong><a class="liver-link" href="https://17.live/s/u/57e14f3f-f34f-46ee-aa72-3a38edf7c590" target="_blank" rel="noopener noreferrer">mikicat</a></strong></p>
             <ul class="team-card__members">
-              <li class="pending">メンバー情報は準備中</li>
+              <li><a class="liver-link" href="https://17.live/s/u/57e14f3f-f34f-46ee-aa72-3a38edf7c590" target="_blank" rel="noopener noreferrer">mikicat</a></li>
+              <li>おすぎさん</li>
+              <li>まっつん</li>
+              <li>South3</li>
             </ul>
             <a class="team-card__detail" href="teams/nekojyaku.html">メンバー詳細</a>
           </article>
@@ -328,7 +326,7 @@
             <h2 id="schedule-heading">スケジュール</h2>
           </div>
         </div>
-        <p class="sect-lead">全8試合日・各日2半荘。時刻・対戦カードは追って掲載します。（時刻は Asia/Tokyo）</p>
+        <p class="sect-lead">全8試合日・各日2半荘。11月分の対戦カードを掲載しています。12月以降は追って掲載します。（時刻は Asia/Tokyo）</p>
 
         <ol class="schedule">
           <li class="sched-item sched-item--opener">
@@ -342,24 +340,36 @@
               <div class="sched-item__tags">
                 <span class="tag tag--teal">開幕</span>
                 <span class="tag">21:00〜</span>
-                <span class="tag">対戦カード未定</span>
+                <span class="tag">対戦カード決定</span>
               </div>
+              <div class="sched-cards"><table>
+                <thead><tr><th></th><th>小猫熊</th><th>Apple牌</th><th>PANDAaaaZ</th><th>猫雀カルテット</th></tr></thead>
+                <tbody><tr><th scope="row">1戦目</th><td>かずなり</td><td>柊なゆた</td><td>笹子ジュン</td><td>まっつん</td></tr><tr><th scope="row">2戦目</th><td>熊恋べりぃ</td><td>シュウ.s</td><td>しー</td><td>おすぎさん</td></tr></tbody>
+              </table></div>
             </div>
           </li>
           <li class="sched-item">
             <div class="sched-item__day"><span class="num">02</span><span class="unit">DAY</span></div>
             <div class="sched-item__body">
               <h3>11月15日（日）</h3>
-              <p class="sched-item__meta">1日2半荘　／　時刻は追って掲載</p>
-              <div class="sched-item__tags"><span class="tag">対戦カード未定</span></div>
+              <p class="sched-item__meta">1日2半荘　／　21:00 開始</p>
+              <div class="sched-item__tags"><span class="tag">21:00〜</span><span class="tag tag--teal">対戦カード決定</span></div>
+              <div class="sched-cards"><table>
+                <thead><tr><th></th><th>小猫熊</th><th>Apple牌</th><th>PANDAaaaZ</th><th>猫雀カルテット</th></tr></thead>
+                <tbody><tr><th scope="row">1戦目</th><td>さくら猫</td><td>緑辺ザウルス</td><td>霧島 耀</td><td>mikicat</td></tr><tr><th scope="row">2戦目</th><td>小悪魔デビル</td><td>シラメイ</td><td>相川 翔</td><td>South3</td></tr></tbody>
+              </table></div>
             </div>
           </li>
           <li class="sched-item">
             <div class="sched-item__day"><span class="num">03</span><span class="unit">DAY</span></div>
             <div class="sched-item__body">
               <h3>11月27日（金）</h3>
-              <p class="sched-item__meta">1日2半荘　／　時刻は追って掲載</p>
-              <div class="sched-item__tags"><span class="tag">対戦カード未定</span></div>
+              <p class="sched-item__meta">1日2半荘　／　21:00 開始</p>
+              <div class="sched-item__tags"><span class="tag">21:00〜</span><span class="tag tag--teal">対戦カード決定</span></div>
+              <div class="sched-cards"><table>
+                <thead><tr><th></th><th>小猫熊</th><th>Apple牌</th><th>PANDAaaaZ</th><th>猫雀カルテット</th></tr></thead>
+                <tbody><tr><th scope="row">1戦目</th><td>さくら猫</td><td>シラメイ</td><td>霧島 耀</td><td>mikicat</td></tr><tr><th scope="row">2戦目</th><td>熊恋べりぃ</td><td>シュウ.s</td><td>笹子ジュン</td><td>まっつん</td></tr></tbody>
+              </table></div>
             </div>
           </li>
           <li class="sched-item">
@@ -406,7 +416,8 @@
             </div>
           </li>
         </ol>
-        <p class="note" style="margin-top:1.2rem;">※ 対戦カード・開始時刻（11/6以外）は未確定のため、確定次第このページを更新します。</p>
+        <p class="note" style="margin-top:1.2rem;">※ 12月以降の対戦カード・開始時刻は未確定のため、確定次第このページを更新します。</p>
+        <p class="note" style="margin-top:0.4rem;font-size:0.8rem;">※ 予定者が参加できない場合は、チームメンバーが代理で参加します。</p>
       </div>
     </section>
 

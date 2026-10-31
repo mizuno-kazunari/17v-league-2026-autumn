@@ -49,16 +49,44 @@
   window.addEventListener("scroll", updateActiveNav, { passive: true });
   updateActiveNav();
 
-  // Countdown(s) to 2026-11-06 21:00 Asia/Tokyo — one tick drives all [data-countdown]
+  // Countdowns: kickoff (開幕) + next-match (対局中 / 次の対局まで)
+  var MATCH_DAYS = [
+    { ymd: "2026-11-06", startIso: "2026-11-06T21:00:00+09:00", sub: "2026年11月6日（金）21:00 配信開始予定（Asia/Tokyo）" },
+    { ymd: "2026-11-15", startIso: "2026-11-15T21:00:00+09:00", sub: "2026年11月15日（日） 21:00 配信開始予定（Asia/Tokyo）" },
+    { ymd: "2026-11-27", startIso: "2026-11-27T21:00:00+09:00", sub: "2026年11月27日（金） 21:00 配信開始予定（Asia/Tokyo）" },
+    { ymd: "2026-12-06", startIso: "2026-12-06T21:00:00+09:00", sub: "2026年12月6日（日） 配信開始予定（Asia/Tokyo）※時刻は追って掲載" },
+    { ymd: "2026-12-18", startIso: "2026-12-18T21:00:00+09:00", sub: "2026年12月18日（金） 配信開始予定（Asia/Tokyo）※時刻は追って掲載" },
+    { ymd: "2026-12-27", startIso: "2026-12-27T21:00:00+09:00", sub: "2026年12月27日（日） 配信開始予定（Asia/Tokyo）※時刻は追って掲載" },
+    { ymd: "2027-01-08", startIso: "2027-01-08T21:00:00+09:00", sub: "2027年1月8日（金） 配信開始予定（Asia/Tokyo）※時刻は追って掲載" },
+    { ymd: "2027-01-17", startIso: "2027-01-17T21:00:00+09:00", sub: "2027年1月17日（日）・最終戦 配信開始予定（Asia/Tokyo）※時刻は追って掲載" }
+  ];
+
   var countdownRoots = Array.prototype.slice.call(
     document.querySelectorAll("[data-countdown]")
   );
+
   if (countdownRoots.length) {
     function pad(n) {
       return String(n).padStart(2, "0");
     }
 
-    function applyLive(root) {
+    function tokyoYmd(ms) {
+      return new Intl.DateTimeFormat("en-CA", {
+        timeZone: "Asia/Tokyo",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit"
+      }).format(new Date(ms));
+    }
+
+    function findMatchByYmd(ymd) {
+      for (var i = 0; i < MATCH_DAYS.length; i++) {
+        if (MATCH_DAYS[i].ymd === ymd) return MATCH_DAYS[i];
+      }
+      return null;
+    }
+
+    function showStatus(root, text) {
       var grid = root.querySelector("[data-cd-grid]");
       var done = root.querySelector("[data-cd-done]");
       var label = root.querySelector(".cd__label");
@@ -68,9 +96,21 @@
       if (sub) sub.hidden = true;
       if (done) {
         done.hidden = false;
-        done.textContent = "リーグ期間中";
+        done.textContent = text;
       }
       root.classList.add("is-live");
+    }
+
+    function showCountdown(root) {
+      var grid = root.querySelector("[data-cd-grid]");
+      var done = root.querySelector("[data-cd-done]");
+      var label = root.querySelector(".cd__label");
+      var sub = root.querySelector(".cd__sub");
+      if (grid) grid.hidden = false;
+      if (label) label.hidden = false;
+      if (sub) sub.hidden = false;
+      if (done) done.hidden = true;
+      root.classList.remove("is-live");
     }
 
     function applyTick(root, diff) {
@@ -88,30 +128,65 @@
       if (secsEl) secsEl.textContent = pad(secs);
     }
 
-    function tickAll() {
-      var now = Date.now();
-      var allLive = true;
-      countdownRoots.forEach(function (root) {
-        var targetIso = root.getAttribute("data-target") || "2026-11-06T21:00:00+09:00";
-        var target = new Date(targetIso).getTime();
-        var diff = target - now;
-        if (diff <= 0) {
-          applyLive(root);
-          return;
-        }
-        allLive = false;
-        applyTick(root, diff);
-      });
-      return allLive;
+    function tickKickoff(root, now) {
+      var targetIso = root.getAttribute("data-target") || "2026-11-06T21:00:00+09:00";
+      var target = new Date(targetIso).getTime();
+      var diff = target - now;
+      if (diff <= 0) {
+        showStatus(root, "リーグ期間中");
+        return true;
+      }
+      showCountdown(root);
+      applyTick(root, diff);
+      return false;
     }
 
-    if (!tickAll()) {
-      setInterval(function () {
-        if (tickAll()) {
-          /* stay live; interval can keep running harmlessly */
+    function tickNextMatch(root, now) {
+      var today = tokyoYmd(now);
+      if (findMatchByYmd(today)) {
+        showStatus(root, "対局中");
+        return false;
+      }
+
+      var next = null;
+      for (var i = 0; i < MATCH_DAYS.length; i++) {
+        if (MATCH_DAYS[i].ymd > today) {
+          next = MATCH_DAYS[i];
+          break;
         }
-      }, 1000);
+      }
+
+      if (!next) {
+        showStatus(root, "リーグ終了");
+        return true;
+      }
+
+      var target = new Date(next.startIso).getTime();
+      var diff = target - now;
+      var sub = root.querySelector("[data-cd-sub]") || root.querySelector(".cd__sub");
+      if (sub) sub.textContent = next.sub;
+      if (diff <= 0) {
+        showStatus(root, "対局中");
+        return false;
+      }
+      showCountdown(root);
+      applyTick(root, diff);
+      return false;
     }
+
+    function tickAll() {
+      var now = Date.now();
+      var allDone = true;
+      countdownRoots.forEach(function (root) {
+        var mode = root.getAttribute("data-countdown") || "kickoff";
+        var done = mode === "next-match" ? tickNextMatch(root, now) : tickKickoff(root, now);
+        if (!done) allDone = false;
+      });
+      return allDone;
+    }
+
+    tickAll();
+    setInterval(tickAll, 1000);
   }
 
   // —— Results: load data/results.json and render ——
