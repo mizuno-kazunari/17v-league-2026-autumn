@@ -1660,3 +1660,13 @@ a.team-card:hover .team-card__name {
 .sched-cards thead th { background: var(--c-bg-soft); font-weight: 700; font-size: 0.78rem; }
 .sched-cards tbody th { white-space: nowrap; font-weight: 700; color: var(--c-accent); }
 .sched-cards tbody th span { display: block; font-size: 0.72rem; color: var(--c-ink-soft); font-weight: 400; }
+
+.hero__title-ja {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: clamp(1.15rem, 4.2vw, 1.7rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--c-ink);
+  word-break: keep-all;
+}
