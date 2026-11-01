@@ -1741,3 +1741,5 @@ a.team-card:hover .team-card__name {
 
 .rules-note-lead{margin:0 0 .6rem;line-height:1.8}
 .rules-detail-list + .rules-note-lead{margin:.6rem 0 0}
+
+.viewer-note{color:#d32f2f;font-weight:700}
