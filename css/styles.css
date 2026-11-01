@@ -1677,3 +1677,64 @@ a.team-card:hover .team-card__name {
 .hero__title-en { letter-spacing: 0.22em; }
 .hero__title + .hero__meta { margin-top: 1.6rem; }
 .hero__meta + .hero__cta { margin-top: 1.8rem; }
+
+/* results sample / day results */
+.results-sample-banner{margin:0 0 1rem;padding:.7rem 1rem;border:2px dashed #e07a1f;border-radius:10px;background:#fff3e3;color:#b4520a;font-weight:700;text-align:center}
+.tag.tag--done{background:#333;color:#fff;border-color:#333}
+.sched-res{display:block;font-size:.78em;font-weight:700;color:#777;margin-top:.15em}
+.sched-res--top{color:#e07a1f}
+
+/* team logo + name */
+.team-label{display:inline-flex;align-items:center;gap:.45em;vertical-align:middle;line-height:1.3}
+.team-label .team-logo{width:28px;height:28px;object-fit:contain;flex:none;border-radius:6px;background:#fff}
+.team-label--stack{flex-direction:column;gap:.25em;text-align:center}
+.team-label--stack .team-logo{width:40px;height:40px}
+.top-score-card__team .team-label{justify-content:center}
+@media (max-width:600px){
+  .team-label .team-logo{width:22px;height:22px}
+  .team-label--stack .team-logo{width:30px;height:30px}
+  .team-label--stack{font-size:.85em}
+}
+
+@media (max-width:600px){
+  #results-players th:last-child,#results-players td.games{display:none}
+  #results-players .results-table{font-size:.8rem;min-width:0}
+  #results-players .rank{width:2em}
+  #results-players .team-label .team-logo{width:18px;height:18px}
+  #results-players th,#results-players td{white-space:nowrap;padding-left:.3em;padding-right:.3em;letter-spacing:0}
+  #results-players .team-label{gap:.3em}
+}
+@media (max-width:600px){
+  #results-teams th:last-child,#results-teams td.games{display:none}
+  #results-teams .results-table{font-size:.85rem;min-width:0}
+  #results-teams th,#results-teams td{white-space:nowrap;padding-left:.4em;padding-right:.4em;letter-spacing:0}
+}
+
+.sched-cards .team-logo--sched { width: 48px; height: 48px; }
+@media (max-width: 600px) { .sched-cards .team-logo--sched { width: 36px; height: 36px; } }
+
+/* v3: transparent logos, logo left + text right */
+.team-label,.team-label--stack{display:inline-flex;flex-direction:row;align-items:center;gap:.35em;white-space:nowrap;text-align:left}
+.team-label .team-logo,.team-label--stack .team-logo{width:26px;height:26px;background:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;object-fit:contain}
+.sched-cards{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.sched-cards td,.sched-cards th{white-space:nowrap}
+.sched-cards td .sched-res{padding-left:calc(26px + .35em);text-align:left}
+.sched-cards td{text-align:left}
+@media (max-width:600px){
+  .team-label .team-logo,.team-label--stack .team-logo{width:20px;height:20px}
+  .sched-cards td .sched-res{padding-left:calc(20px + .35em)}
+  .sched-cards table{font-size:.8rem}
+  #results-players .team-label .team-logo{width:18px;height:18px}
+}
+.schedule{grid-template-columns:minmax(0,1fr)}
+.sched-item,.sched-item__body,.sched-cards{min-width:0;max-width:100%}
+
+.sched-cards tbody td { text-align: center !important; }
+.sched-cards tbody td .sched-res { display: block; text-align: center; margin-left: 0 !important; padding-left: 0 !important; }
+
+/* equal team columns */
+.sched-cards table { table-layout: fixed; }
+.sched-cards thead th:first-child, .sched-cards tbody th { width: 4.2rem; }
+.sched-cards thead th:not(:first-child), .sched-cards tbody td { width: calc((100% - 4.2rem) / 4); }
+.sched-cards thead th .team-label { white-space: normal; justify-content: center; }
+@media (max-width: 600px) { .sched-cards table { min-width: 560px; } }

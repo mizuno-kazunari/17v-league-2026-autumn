@@ -223,6 +223,13 @@
     if (filled) filled.hidden = false;
   }
 
+  var TEAM_IDS = { "小猫熊": "koneko", "お前をApple牌": "apple", "Apple牌": "apple", "PANDAaaaZ": "pandaz", "猫雀カルテット": "nekojyaku" };
+  function teamLabel(name, id) {
+    id = id || TEAM_IDS[name];
+    var img = id ? '<img class="team-logo" src="assets/logos/team-' + escapeHtml(id) + '.png" alt="" width="32" height="32" loading="lazy">' : "";
+    return '<span class="team-label">' + img + "<span>" + escapeHtml(name) + "</span></span>";
+  }
+
   function renderTeamRanking(data) {
     var container = document.querySelector('[data-results="teamRanking"]');
     if (!container) return;
@@ -243,7 +250,7 @@
       return (
         "<tr>" +
         '<td class="' + rankClass + '">' + escapeHtml(row.rank) + "</td>" +
-        '<td class="name-cell">' + escapeHtml(row.name) + "</td>" +
+        '<td class="name-cell">' + teamLabel(row.name, row.teamId) + "</td>" +
         '<td class="score">' + formatScore(row.score) + "</td>" +
         '<td class="games">' + escapeHtml(row.games != null ? row.games : "—") + "</td>" +
         "</tr>"
@@ -273,7 +280,7 @@
         "<tr>" +
         '<td class="' + rankClass + '">' + escapeHtml(row.rank) + "</td>" +
         '<td class="name-cell">' + escapeHtml(row.name) + "</td>" +
-        '<td class="team-cell">' + escapeHtml(row.team) + "</td>" +
+        '<td class="team-cell">' + teamLabel(row.team, row.teamId) + "</td>" +
         '<td class="score">' + formatScore(row.score) + "</td>" +
         '<td class="games">' + escapeHtml(row.games != null ? row.games : "—") + "</td>" +
         "</tr>"
@@ -309,7 +316,7 @@
         '<span class="top-score-card__rank">TOP ' + escapeHtml(row.rank) + "</span>" +
         '<p class="top-score-card__score">' + formatScore(row.score) + "</p>" +
         '<p class="top-score-card__name">' + escapeHtml(row.name) + "</p>" +
-        '<p class="top-score-card__team">' + escapeHtml(row.team) + "</p>" +
+        '<p class="top-score-card__team">' + teamLabel(row.team, row.teamId) + "</p>" +
         meta +
         "</li>"
       );
@@ -317,7 +324,42 @@
     showFilled(container);
   }
 
+
+  function renderSample(data) {
+    var on = !!(data && data.sample);
+    document.querySelectorAll("[data-sample-banner]").forEach(function (el) { el.hidden = !on; });
+  }
+
+  var TEAM_ORDER = ["koneko", "apple", "pandaz", "nekojyaku"];
+  function renderDays(data) {
+    var days = (data && data.days) || {};
+    Object.keys(days).forEach(function (day) {
+      var li = document.querySelector('.sched-item[data-day="' + day + '"]');
+      var games = days[day] && days[day].games;
+      if (!li || !games || !games.length) return;
+      var tags = li.querySelector(".sched-item__tags");
+      if (tags && !tags.querySelector(".tag--done")) {
+        tags.insertAdjacentHTML("afterbegin", '<span class="tag tag--done">終了' + (data.sample ? "（サンプル）" : "") + "</span>");
+      }
+      var rows = li.querySelectorAll(".sched-cards tbody tr");
+      games.forEach(function (g, i) {
+        var tr = rows[i];
+        if (!tr) return;
+        var tds = tr.querySelectorAll("td");
+        TEAM_ORDER.forEach(function (tid, j) {
+          var r = g[tid];
+          if (!r || !tds[j]) return;
+          tds[j].innerHTML = escapeHtml(r.name) +
+            '<span class="sched-res' + (r.rank === 1 ? " sched-res--top" : "") + '">' +
+            escapeHtml(r.rank) + "位 " + formatScore(r.score) + "</span>";
+        });
+      });
+    });
+  }
+
   function applyResults(data) {
+    renderSample(data);
+    renderDays(data);
     // Always keep empty UI when updatedAt is null (pre-kickoff)
     if (!data || data.updatedAt == null) {
       showEmpty(document.querySelector('[data-results="teamRanking"]'));
