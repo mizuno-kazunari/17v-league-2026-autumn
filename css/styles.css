@@ -1418,7 +1418,7 @@ a:hover { color: var(--c-accent-deep); }
 }
 .page-head__lead {
   margin: 0 auto;
-  max-width: 48rem;
+  max-width: 62rem;
   color: var(--c-ink-soft);
   font-size: 0.95rem;
   line-height: 1.85;
