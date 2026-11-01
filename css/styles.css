@@ -1738,3 +1738,6 @@ a.team-card:hover .team-card__name {
 .sched-cards thead th:not(:first-child), .sched-cards tbody td { width: calc((100% - 4.2rem) / 4); }
 .sched-cards thead th .team-label { white-space: normal; justify-content: center; }
 @media (max-width: 600px) { .sched-cards table { min-width: 560px; } }
+
+.rules-note-lead{margin:0 0 .6rem;line-height:1.8}
+.rules-detail-list + .rules-note-lead{margin:.6rem 0 0}
