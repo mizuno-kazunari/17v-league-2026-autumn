@@ -1,38 +1,142 @@
 {
   "sample": false,
-  "updatedAt": null,
+  "updatedAt": "2026-11-06T23:59:00+09:00",
   "contestId": "128015",
   "teamRanking": [
     {
       "rank": 1,
-      "teamId": "koneko",
-      "name": "小猫熊",
-      "score": null,
-      "games": 0
+      "teamId": "nekojyaku",
+      "name": "猫雀カルテット",
+      "score": 54.8,
+      "games": 2
     },
     {
       "rank": 2,
-      "teamId": "apple",
-      "name": "お前をApple牌",
-      "score": null,
-      "games": 0
+      "teamId": "pandaz",
+      "name": "PANDAaaaZ",
+      "score": 14.5,
+      "games": 2
     },
     {
       "rank": 3,
-      "teamId": "pandaz",
-      "name": "PANDAaaaZ",
-      "score": null,
-      "games": 0
+      "teamId": "apple",
+      "name": "お前をApple牌",
+      "score": -13.3,
+      "games": 2
     },
     {
       "rank": 4,
-      "teamId": "nekojyaku",
-      "name": "猫雀カルテット",
-      "score": null,
-      "games": 0
+      "teamId": "koneko",
+      "name": "小猫熊",
+      "score": -56,
+      "games": 2
     }
   ],
-  "playerScores": [],
-  "topScores": [],
-  "days": {}
+  "playerScores": [
+    {
+      "rank": 1,
+      "name": "笹子ジュン",
+      "team": "PANDAaaaZ",
+      "score": 71.5,
+      "games": 1
+    },
+    {
+      "rank": 2,
+      "name": "おすぎさん",
+      "team": "猫雀カルテット",
+      "score": 55.3,
+      "games": 1
+    },
+    {
+      "rank": 3,
+      "name": "シュウ.s",
+      "team": "お前をApple牌",
+      "score": 10.9,
+      "games": 1
+    }
+  ],
+  "topScores": [
+    {
+      "rank": 1,
+      "name": "笹子ジュン",
+      "team": "PANDAaaaZ",
+      "score": 71.5,
+      "date": "11/6 1戦目",
+      "note": "51,500点"
+    },
+    {
+      "rank": 2,
+      "name": "おすぎさん",
+      "team": "猫雀カルテット",
+      "score": 55.3,
+      "date": "11/6 2戦目",
+      "note": "35,300点"
+    },
+    {
+      "rank": 3,
+      "name": "シュウ.s",
+      "team": "お前をApple牌",
+      "score": 10.9,
+      "date": "11/6 2戦目",
+      "note": "30,900点"
+    }
+  ],
+  "days": {
+    "2026-11-06": {
+      "games": [
+        {
+          "pandaz": {
+            "name": "笹子ジュン",
+            "rank": 1,
+            "points": 51500,
+            "score": 71.5
+          },
+          "nekojyaku": {
+            "name": "まっつん",
+            "rank": 2,
+            "points": 19500,
+            "score": -0.5
+          },
+          "apple": {
+            "name": "柊なゆた",
+            "rank": 3,
+            "points": 15800,
+            "score": -24.2
+          },
+          "koneko": {
+            "name": "かずなり",
+            "rank": 4,
+            "points": 13200,
+            "score": -46.8
+          }
+        },
+        {
+          "nekojyaku": {
+            "name": "おすぎさん",
+            "rank": 1,
+            "points": 35300,
+            "score": 55.3
+          },
+          "apple": {
+            "name": "シュウ.s",
+            "rank": 2,
+            "points": 30900,
+            "score": 10.9
+          },
+          "koneko": {
+            "name": "熊恋べりぃ",
+            "rank": 3,
+            "points": 30800,
+            "score": -9.2
+          },
+          "pandaz": {
+            "name": "しー",
+            "rank": 4,
+            "points": 3000,
+            "score": -57
+          }
+        }
+      ]
+    }
+  }
 }
