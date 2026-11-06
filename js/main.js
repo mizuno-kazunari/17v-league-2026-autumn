@@ -141,11 +141,21 @@
       return false;
     }
 
-    function tickNextMatch(root, now) {
+    // Match-day window (Asia/Tokyo): countdown until 21:00,
+    // then 対局中 through 23:59:59; after midnight, next match / finished.
+    function resolveNextMatch(now) {
       var today = tokyoYmd(now);
-      if (findMatchByYmd(today)) {
-        showStatus(root, "対局中");
-        return false;
+      var todayMatch = findMatchByYmd(today);
+      if (todayMatch) {
+        var start = new Date(todayMatch.startIso).getTime();
+        if (now >= start) {
+          return { kind: "live", text: "対局中" };
+        }
+        return {
+          kind: "countdown",
+          target: start,
+          sub: todayMatch.sub
+        };
       }
 
       var next = null;
@@ -157,15 +167,28 @@
       }
 
       if (!next) {
-        showStatus(root, "リーグ終了");
-        return true;
+        return { kind: "finished", text: "リーグ終了" };
       }
 
-      var target = new Date(next.startIso).getTime();
-      var diff = target - now;
+      return {
+        kind: "countdown",
+        target: new Date(next.startIso).getTime(),
+        sub: next.sub
+      };
+    }
+
+    function tickNextMatch(root, now) {
+      var state = resolveNextMatch(now);
+      if (state.kind === "live" || state.kind === "finished") {
+        showStatus(root, state.text);
+        return state.kind === "finished";
+      }
+
       var sub = root.querySelector("[data-cd-sub]") || root.querySelector(".cd__sub");
-      if (sub) sub.textContent = next.sub;
+      if (sub) sub.textContent = state.sub;
+      var diff = state.target - now;
       if (diff <= 0) {
+        // Safety: treat overdue target as live rather than negative countdown.
         showStatus(root, "対局中");
         return false;
       }
