@@ -50,6 +50,8 @@
   updateActiveNav();
 
   // Countdowns: kickoff (開幕) + next-match (対局中 / 次の対局まで)
+  // 一時休止中: true の間は両カウントダウンを「一時休止中」で固定。再開時は false に戻す。
+  var LEAGUE_PAUSED = true;
   var MATCH_DAYS = [
     { ymd: "2026-11-06", startIso: "2026-11-06T21:00:00+09:00", sub: "2026年11月6日（金）21:00 配信開始予定（Asia/Tokyo）" },
     { ymd: "2026-11-15", startIso: "2026-11-15T21:00:00+09:00", sub: "2026年11月15日（日） 21:00 配信開始予定（Asia/Tokyo）" },
@@ -198,6 +200,10 @@
     }
 
     function tickAll() {
+      if (LEAGUE_PAUSED) {
+        countdownRoots.forEach(function (root) { showStatus(root, "一時休止中"); });
+        return true;
+      }
       var now = Date.now();
       var allDone = true;
       countdownRoots.forEach(function (root) {
