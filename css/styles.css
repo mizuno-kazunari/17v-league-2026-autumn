@@ -1743,3 +1743,12 @@ a.team-card:hover .team-card__name {
 .rules-detail-list + .rules-note-lead{margin:.6rem 0 0}
 
 .viewer-note{color:#d32f2f;font-weight:700}
+
+/* —— Notice —— */
+.notice-wrap{padding:2.5rem 0 0}
+.notice{background:#fff;border:2px solid var(--c-accent);border-radius:var(--radius);box-shadow:var(--shadow-card);padding:1.75rem 2rem;max-width:52rem;margin:0 auto;line-height:1.9;overflow-wrap:anywhere;word-break:normal;line-break:strict}
+.notice__title{font-family:var(--font-mincho);color:var(--c-accent);font-size:1.4rem;text-align:center;margin:0 0 1rem;padding-bottom:.6rem;border-bottom:1px solid var(--c-accent-soft)}
+.notice p{margin:0 0 .4rem}
+.notice__sign{margin-top:1.2rem!important;text-align:right}
+.notice__date{text-align:right}
+@media (max-width:600px){.notice{padding:1.25rem 1rem}.notice__title{font-size:1.15rem}}
